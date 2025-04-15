@@ -154,6 +154,108 @@
         audio {
             display: none;
         }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            background: #222;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #ffd700;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        .modal-content h2 {
+            margin: 0 0 20px;
+            color: #ffd700;
+            font-weight: 300;
+        }
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            background: #333;
+            border: 1px solid #ffd700;
+            border-radius: 4px;
+            color: #d3d3d3;
+            font-size: 1rem;
+            text-align: center; /* Added to center the placeholder text */
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+        }
+        /* Style the placeholder specifically for cross-browser compatibility */
+        ::-webkit-input-placeholder { /* Chrome, Safari, Opera */
+            color: #d3d3d3;
+            text-align: center;
+            font-weight: 300;
+        }
+        :-moz-placeholder { /* Firefox 18- */
+            color: #d3d3d3;
+            text-align: center;
+            font-weight: 300;
+        }
+       ::-moz-placeholder { /* Firefox 19+ */
+            color: #d3d3d3;
+            text-align: center;
+            font-weight: 300;
+        }
+        :-ms-input-placeholder { /* IE 10+ */
+            color: #d3d3d3;
+            text-align: center;
+            font-weight: 300;
+        }
+        ::placeholder { /* Standard syntax */
+            color: #d3d3d3;
+            text-align: center;
+            font-weight: 300;
+        }
+        .modal-buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+        .modal-button {
+            background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            color: #ffd700;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        .modal-button:hover {
+            background: linear-gradient(145deg, #3a3a3a, #2e2e2e);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        .modal-button.cancel {
+            border-color: #888;
+            color: #888;
+        }
+        .modal-button.cancel:hover {
+            background: linear-gradient(145deg, #3a3a3a, #2e2e2e);
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+        .error-message {
+            color: #ff5555;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -164,13 +266,13 @@
         <div class="button-grid">
             <a href="https://comabhiram.github.io/BugPC/" class="coolBeans" target="_blank" data-note="note1">BUG Priority Classification System</a>
             <div class="coolBeans" onclick="toggleTable()" data-note="note2">QA Documentation</div>
-            <a href="https://docs.google.com/spreadsheets/d/1Nq6beZlve3jonEOXjdxoCz0oLfaRE_bv/edit?gid=148362422#gid=148362422" class="coolBeans" target="_blank" data-note="note3">QA Assessment</a>
+            <div class="coolBeans" onclick="showPasswordModal()" data-note="note3">QA Assessment</div>
             <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=273953878#gid=273953878" class="coolBeans" target="_blank" data-note="note4">Project Overview</a>
             <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=1077985016#gid=1077985016" class="coolBeans" target="_blank" data-note="note5">Rejected Projects</a>
             <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=1233590005#gid=1233590005" class="coolBeans" target="_blank" data-note="note6">Approved Projects</a>
             <a href="https://inter-smart.github.io/Intersmartoffice/" class="coolBeans" target="_blank" data-note="note7">Conference Room Booking App</a>
             <a href="https://comabhiram.github.io/emailgenerator/" class="coolBeans" target="_blank" data-note="note8">QA Email Generator</a>
-    <a href="https://docs.google.com/spreadsheets/d/1j14A8CHxkdV4o2TDONngIhTpEreRGMsVyVUryILp6qw/edit?gid=382781747#gid=382781747" class="coolBeans" target="_blank" data-note="note9">QA Checklist</a>
+            <a href="https://docs.google.com/spreadsheets/d/1j14A8CHxkdV4o2TDONngIhTpEreRGMsVyVUryILp6qw/edit?gid=382781747#gid=382781747" class="coolBeans" target="_blank" data-note="note9">QA Checklist</a>
         </div>
         <table id="qaDocTable">
             <tr>
@@ -182,6 +284,18 @@
                 <td><a href="https://intersmartqa.github.io/JoyitaDoc/" target="_blank">https://intersmartqa.github.io/JoyitaDoc/</a></td>
             </tr>
         </table>
+        <!-- Password Modal -->
+        <div id="passwordModal" class="modal">
+            <div class="modal-content">
+                <h2>Enter Password</h2>
+                <input type="password" id="passwordInput" placeholder="Password">
+                <div class="modal-buttons">
+                    <button class="modal-button" onclick="checkPassword()">Submit</button>
+                    <button class="modal-button cancel" onclick="closePasswordModal()">Cancel</button>
+                </div>
+                <p id="errorMessage" class="error-message"></p>
+            </div>
+        </div>
     </div>
     <footer>
         <p>This Page is Created by and is for Inter Smart QA team</p>
@@ -202,7 +316,7 @@
     <audio id="note6" src="sounds/A5.mp3"></audio> <!-- Replace with actual A note file -->
     <audio id="note7" src="sounds/B5.mp3"></audio> <!-- Replace with actual B note file -->
     <audio id="note8" src="sounds/C6.mp3"></audio> <!-- Replace with actual C6 note file -->
-<audio id="note9" src="sounds/D6.mp3"></audio> <!-- Replace with actual D6 note file -->
+    <audio id="note9" src="sounds/D6.mp3"></audio> <!-- Replace with actual D6 note file -->
 
     <script>
         function toggleTable() {
@@ -210,8 +324,45 @@
             table.classList.toggle('show');
         }
 
-        // Add hover event listeners to buttons
+        function showPasswordModal() {
+            const modal = document.getElementById('passwordModal');
+            const passwordInput = document.getElementById('passwordInput');
+            const errorMessage = document.getElementById('errorMessage');
+            passwordInput.value = '';
+            errorMessage.textContent = '';
+            modal.classList.add('show');
+            passwordInput.focus();
+        }
+
+        function closePasswordModal() {
+            const modal = document.getElementById('passwordModal');
+            modal.classList.remove('show');
+        }
+
+        function checkPassword() {
+            const passwordInput = document.getElementById('passwordInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const correctPassword = 'Abhihere12';
+            const qaAssessmentLink = 'https://docs.google.com/spreadsheets/d/1Nq6beZlve3jonEOXjdxoCz0oLfaRE_bv/edit?gid=148362422#gid=148362422';
+
+            if (passwordInput === correctPassword) {
+                window.open(qaAssessmentLink, '_blank');
+                closePasswordModal();
+            } else {
+                errorMessage.textContent = 'Incorrect password. Please try again.';
+            }
+        }
+
+        // Handle Enter key for password submission
         document.addEventListener('DOMContentLoaded', () => {
+            const passwordInput = document.getElementById('passwordInput');
+            passwordInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+
+            // Add hover event listeners to buttons
             const buttons = document.querySelectorAll('.coolBeans');
             buttons.forEach(button => {
                 button.addEventListener('mouseover', () => {
