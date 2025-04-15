@@ -151,6 +151,9 @@
             color: #ffffff;
             text-decoration: underline;
         }
+        audio {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -159,13 +162,15 @@
             <img src="images/logo.png" alt="InterSmart Logo">
         </header>
         <div class="button-grid">
-            <a href="https://comabhiram.github.io/BugPC/" class="coolBeans" target="_blank">BUG Priority Classification System</a>
-            <div class="coolBeans" onclick="toggleTable()">QA Documentation</div>
-            <a href="https://docs.google.com/spreadsheets/d/1Nq6beZlve3jonEOXjdxoCz0oLfaRE_bv/edit?gid=148362422#gid=148362422" class="coolBeans" target="_blank">QA Assessment</a>
-            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=273953878#gid=273953878" class="coolBeans" target="_blank">Project Overview</a>
-            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=1077985016#gid=1077985016" class="coolBeans" target="_blank">Rejected Projects</a>
-            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=1233590005#gid=1233590005" class="coolBeans" target="_blank">Approved Projects</a>
-            <a href="https://inter-smart.github.io/Intersmartoffice/" class="coolBeans" target="_blank">Conference Room Booking App</a>
+            <a href="https://comabhiram.github.io/BugPC/" class="coolBeans" target="_blank" data-note="note1">BUG Priority Classification System</a>
+            <div class="coolBeans" onclick="toggleTable()" data-note="note2">QA Documentation</div>
+            <a href="https://docs.google.com/spreadsheets/d/1Nq6beZlve3jonEOXjdxoCz0oLfaRE_bv/edit?gid=148362422#gid=148362422" class="coolBeans" target="_blank" data-note="note3">QA Assessment</a>
+            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=273953878#gid=273953878" class="coolBeans" target="_blank" data-note="note4">Project Overview</a>
+            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=1077985016#gid=1077985016" class="coolBeans" target="_blank" data-note="note5">Rejected Projects</a>
+            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=1233590005#gid=1233590005" class="coolBeans" target="_blank" data-note="note6">Approved Projects</a>
+            <a href="https://inter-smart.github.io/Intersmartoffice/" class="coolBeans" target="_blank" data-note="note7">Conference Room Booking App</a>
+            <a href="https://comabhiram.github.io/emailgenerator/" class="coolBeans" target="_blank" data-note="note8">QA Email Generator</a>
+    <a href="https://docs.google.com/spreadsheets/d/1j14A8CHxkdV4o2TDONngIhTpEreRGMsVyVUryILp6qw/edit?gid=382781747#gid=382781747" class="coolBeans" target="_blank" data-note="note9">QA Checklist</a>
         </div>
         <table id="qaDocTable">
             <tr>
@@ -188,11 +193,39 @@
            <a href="https://www.linkedin.com/in/abhiram-p-mohan" target="_blank">LinkedIn</a></p>
     </footer>
 
+    <!-- Audio elements for musical notes -->
+    <audio id="note1" src="sounds/C5.mp3"></audio> <!-- Replace with actual C note file -->
+    <audio id="note2" src="sounds/D5.mp3"></audio> <!-- Replace with actual D note file -->
+    <audio id="note3" src="sounds/E5.mp3"></audio> <!-- Replace with actual E note file -->
+    <audio id="note4" src="sounds/F5.mp3"></audio> <!-- Replace with actual F note file -->
+    <audio id="note5" src="sounds/G5.mp3"></audio> <!-- Replace with actual G note file -->
+    <audio id="note6" src="sounds/A5.mp3"></audio> <!-- Replace with actual A note file -->
+    <audio id="note7" src="sounds/B5.mp3"></audio> <!-- Replace with actual B note file -->
+    <audio id="note8" src="sounds/C6.mp3"></audio> <!-- Replace with actual C6 note file -->
+<audio id="note9" src="sounds/D6.mp3"></audio> <!-- Replace with actual D6 note file -->
+
     <script>
         function toggleTable() {
             const table = document.getElementById('qaDocTable');
             table.classList.toggle('show');
         }
+
+        // Add hover event listeners to buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.coolBeans');
+            buttons.forEach(button => {
+                button.addEventListener('mouseover', () => {
+                    const noteId = button.getAttribute('data-note');
+                    if (noteId) {
+                        const audio = document.getElementById(noteId);
+                        if (audio) {
+                            audio.currentTime = 0; // Reset to start
+                            audio.play().catch(error => console.log("Audio play failed:", error));
+                        }
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
