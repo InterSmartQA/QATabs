@@ -151,10 +151,6 @@
             color: #ffffff;
             text-decoration: underline;
         }
-        audio {
-            display: none;
-        }
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -194,31 +190,30 @@
             border-radius: 4px;
             color: #d3d3d3;
             font-size: 1rem;
-            text-align: center; /* Added to center the placeholder text */
-            box-sizing: border-box; /* Ensures padding doesn't affect width */
+            text-align: center;
+            box-sizing: border-box;
         }
-        /* Style the placeholder specifically for cross-browser compatibility */
-        ::-webkit-input-placeholder { /* Chrome, Safari, Opera */
+        ::-webkit-input-placeholder {
             color: #d3d3d3;
             text-align: center;
             font-weight: 300;
         }
-        :-moz-placeholder { /* Firefox 18- */
+        :-moz-placeholder {
             color: #d3d3d3;
             text-align: center;
             font-weight: 300;
         }
-       ::-moz-placeholder { /* Firefox 19+ */
+        ::-moz-placeholder {
             color: #d3d3d3;
             text-align: center;
             font-weight: 300;
         }
-        :-ms-input-placeholder { /* IE 10+ */
+        :-ms-input-placeholder {
             color: #d3d3d3;
             text-align: center;
             font-weight: 300;
         }
-        ::placeholder { /* Standard syntax */
+        ::placeholder {
             color: #d3d3d3;
             text-align: center;
             font-weight: 300;
@@ -264,15 +259,16 @@
             <img src="images/logo.png" alt="InterSmart Logo">
         </header>
         <div class="button-grid">
-            <a href="https://comabhiram.github.io/Bugpcnew/" class="coolBeans" target="_blank" data-note="note1">BUG Priority Classification System</a>
-            <a href="https://intersmartqa.github.io/Multi-Project-QA-Hub/" class="coolBeans" target="_blank" data-note="note2">QA Documentation</a>
-            <div class="coolBeans" onclick="showPasswordModal()" data-note="note3">QA Assessment</div>
-            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=273953878#gid=273953878" class="coolBeans" target="_blank" data-note="note4">Project Overview</a>
-            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=1077985016#gid=1077985016" class="coolBeans" target="_blank" data-note="note5">Rejected Projects</a>
-            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=1233590005#gid=1233590005" class="coolBeans" target="_blank" data-note="note6">Approved Projects</a>
-            <a href="https://inter-smart.github.io/Intersmartoffice/" class="coolBeans" target="_blank" data-note="note7">Conference Room Booking App</a>
-            <a href="https://comabhiram.github.io/QAEmailGen/" class="coolBeans" target="_blank" data-note="note8">QA Email Generator</a>
-            <a href="https://docs.google.com/spreadsheets/d/1j14A8CHxkdV4o2TDONngIhTpEreRGMsVyVUryILp6qw/edit?gid=382781747#gid=382781747" class="coolBeans" target="_blank" data-note="note9">QA Checklist</a>
+            <a href="https://comabhiram.github.io/Bugpcnew/" class="coolBeans" target="_blank">BUG Priority Classification System</a>
+            <a href="https://intersmartqa.github.io/Multi-Project-QA-Hub/" class="coolBeans" target="_blank">QA Documentation</a>
+            <div class="coolBeans" onclick="showPasswordModal()">QA Assessment</div>
+            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=273953878#gid=273953878" class="coolBeans" target="_blank">Project Overview</a>
+            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=1077985016#gid=1077985016" class="coolBeans" target="_blank">Rejected Projects</a>
+            <a href="https://docs.google.com/spreadsheets/d/1XGHdtXtauzn7oLZx4Hohl88VUouLmYizH64T1oG6abc/edit?gid=1233590005#gid=1233590005" class="coolBeans" target="_blank">Approved Projects</a>
+            <a href="https://inter-smart.github.io/Intersmartoffice/" class="coolBeans" target="_blank">Conference Room Booking App</a>
+            <a href="https://comabhiram.github.io/QAEmailGen/" class="coolBeans" target="_blank">QA Email Generator</a>
+            <a href="https://docs.google.com/spreadsheets/d/1j14A8CHxkdV4o2TDONngIhTpEreRGMsVyVUryILp6qw/edit?gid=382781747#gid=382781747" class="coolBeans" target="_blank">QA Checklist</a>
+            <a href="https://comabhiram.github.io/Gitlabsnaps/" class="coolBeans" target="_blank">GITLAB Snaps</a>
         </div>
         <table id="qaDocTable">
             <tr>
@@ -284,7 +280,6 @@
                 <td><a href="https://intersmartqa.github.io/JoyitaDoc/" target="_blank">https://intersmartqa.github.io/JoyitaDoc/</a></td>
             </tr>
         </table>
-        <!-- Password Modal -->
         <div id="passwordModal" class="modal">
             <div class="modal-content">
                 <h2>Enter Password</h2>
@@ -306,18 +301,6 @@
            <a href="https://github.com/ComAbhiram" target="_blank">GitHub</a> | 
            <a href="https://www.linkedin.com/in/abhiram-p-mohan" target="_blank">LinkedIn</a></p>
     </footer>
-
-    <!-- Audio elements for musical notes -->
-    <audio id="note1" src="sounds/C5.mp3"></audio> <!-- Replace with actual C note file -->
-    <audio id="note2" src="sounds/D5.mp3"></audio> <!-- Replace with actual D note file -->
-    <audio id="note3" src="sounds/E5.mp3"></audio> <!-- Replace with actual E note file -->
-    <audio id="note4" src="sounds/F5.mp3"></audio> <!-- Replace with actual F note file -->
-    <audio id="note5" src="sounds/G5.mp3"></audio> <!-- Replace with actual G note file -->
-    <audio id="note6" src="sounds/A5.mp3"></audio> <!-- Replace with actual A note file -->
-    <audio id="note7" src="sounds/B5.mp3"></audio> <!-- Replace with actual B note file -->
-    <audio id="note8" src="sounds/C6.mp3"></audio> <!-- Replace with actual C6 note file -->
-    <audio id="note9" src="sounds/D6.mp3"></audio> <!-- Replace with actual D6 note file -->
-
     <script>
         function showPasswordModal() {
             const modal = document.getElementById('passwordModal');
@@ -348,28 +331,12 @@
             }
         }
 
-        // Handle Enter key for password submission
         document.addEventListener('DOMContentLoaded', () => {
             const passwordInput = document.getElementById('passwordInput');
             passwordInput.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter') {
                     checkPassword();
                 }
-            });
-
-            // Add hover event listeners to buttons
-            const buttons = document.querySelectorAll('.coolBeans');
-            buttons.forEach(button => {
-                button.addEventListener('mouseover', () => {
-                    const noteId = button.getAttribute('data-note');
-                    if (noteId) {
-                        const audio = document.getElementById(noteId);
-                        if (audio) {
-                            audio.currentTime = 0; // Reset to start
-                            audio.play().catch(error => console.log("Audio play failed:", error));
-                        }
-                    }
-                });
             });
         });
     </script>
